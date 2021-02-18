@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.androidartdemo">
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <permission
+        android:name="com.example.androidartdemo.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.example.androidartdemo.permission.ACCESS_BOOK_PROVIDER"
+        android:protectionLevel="normal" />
+
+    <uses-permission android:name="com.example.androidartproject.permission.ACCESS_BOOK_SERVICE" />
+    <uses-permission android:name="com.example.androidartproject.permission.ACCESS_BOOK_PROVIDER" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidArtProject">
+        <activity android:name="com.example.androidartdemo.remote.activity.NotificationShowActivity"/>
+        <activity android:name="com.example.androidartdemo.remote.activity.RemoteNotificationActivity" />
+        <activity android:name="com.example.androidartdemo.remote.RemoteViewMainActivity" />
+        <activity android:name="com.example.androidartdemo.activity.view.scrollconflict.SameDirectionConflictActivity" />
+        <activity android:name="com.example.androidartdemo.activity.view.scrollconflict.DifferentDirectConflictActivity" />
+        <activity android:name="com.example.androidartdemo.activity.view.ScrollConflictActivity" />
+        <activity android:name="com.example.androidartdemo.activity.view.ViewScrollerActivity" />
+        <activity android:name="com.example.androidartdemo.activity.ViewMainActivity" />
+        <activity android:name="com.example.androidartdemo.activity.TextMessengerActivity" />
+        <activity android:name="com.example.androidartdemo.activity.AidlMainActivity" />
+        <activity android:name="com.example.androidartdemo.activity.BookProviderActivity" />
+
+        <activity android:name="com.example.androidartdemo.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.example.androidartdemo.provider.BookProvider"
+            android:authorities="com.example.androidproject.book.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.example.androidartproject.permission.ACCESS_BOOK_PROVIDER"
+            android:process=":provider" />
+
+        <service
+            android:name="com.example.androidartdemo.server.BookManagerServer"
+            android:enabled="true"
+            android:exported="true"
+            android:process="com.example.androidartproject.bookmanager.process">
+            <intent-filter>
+                <action android:name="com.example.androidartproject.bookmanager" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.example.androidartdemo.server.MessengerServer"
+            android:process=":messenger.service" />
+    </application>
+
+</manifest>

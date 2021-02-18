@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/baseParent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.view.ViewScrollerActivity">
+
+    <com.example.androidartdemo.widget.ScrollerLayout
+        android:id="@+id/baseScrollLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/baseScrollView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/cardview_dark_background"/>
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_green_dark" />
+    </com.example.androidartdemo.widget.ScrollerLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
