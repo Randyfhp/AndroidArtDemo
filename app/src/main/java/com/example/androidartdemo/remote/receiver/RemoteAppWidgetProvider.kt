@@ -8,18 +8,16 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Color
+import android.graphics.Canvas
 import android.graphics.Matrix
 import android.os.Build
 import android.util.Log
 import android.widget.RemoteViews
-import android.widget.Toast
 import com.example.androidartdemo.R
 import com.example.androidartdemo.utils.ToastUtil
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import java.util.concurrent.atomic.AtomicBoolean
+
 
 class RemoteAppWidgetProvider : AppWidgetProvider() {
 
@@ -28,18 +26,17 @@ class RemoteAppWidgetProvider : AppWidgetProvider() {
         const val REMOTE_CLICK_ACTION = "com.example.androidartdemo.remote.receiver.action.CLICK"
     }
 
+    private val isAnimationFinished = AtomicBoolean(true)
+
     private fun rotateBitmap(context: Context?, bitmap: Bitmap?, degree: Float): Bitmap? {
         if (context == null) { return null }
         val matrix = Matrix().apply {
             reset()
             setRotate(degree)
         }
-        Log.d(TAG,"1${bitmap?.width} : ${bitmap?.height}")
         return bitmap?.let {
-            Log.d(TAG,"2${it.width} : ${it.height}")
-            Bitmap.createBitmap(it, 0, 0, it.width, it.height, matrix, true).also { newBitmap ->
-                Log.d(TAG,"3${newBitmap.width} : ${newBitmap.height}")
-            }
+            Bitmap.createBitmap(it, 0, 0, it.width, it.height, matrix, true)
+
         }
     }
 
@@ -53,15 +50,34 @@ class RemoteAppWidgetProvider : AppWidgetProvider() {
         return PendingIntent.getBroadcast(context, requestCode, intent, flags)
     }
 
+
+    private fun getBitmap(context: Context?, vectorDrawableId: Int): Bitmap? {
+        var bitmap: Bitmap? = null
+        if (context == null) { return null }
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            val vectorDrawable = context.getDrawable(vectorDrawableId)
+            bitmap = Bitmap.createBitmap(vectorDrawable!!.intrinsicWidth,
+                    vectorDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
+            val canvas = Canvas(bitmap)
+            vectorDrawable.setBounds(0, 0, canvas.width, canvas.height)
+            vectorDrawable.draw(canvas)
+        } else {
+            bitmap = BitmapFactory.decodeResource(context.resources, vectorDrawableId)
+        }
+        return bitmap
+    }
+
+
     private fun doOnRemoteClick(context: Context?) {
         if (context == null) { return }
         ToastUtil(context).s("clicked it").show()
-
-        GlobalScope.launch(Dispatchers.Main) {
+        if (!isAnimationFinished.get()) { return }
+        isAnimationFinished.set(false)
+        GlobalScope.launch(Dispatchers.Default) {
             val appWidgetManager = AppWidgetManager.getInstance(context)
-            val srcBitmap = BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher)
-            for (i in 0 until 37) {
-                val degree = (i * 10) % 360F
+            val srcBitmap = getBitmap(context,  R.mipmap.ic_launcher)
+            for (i in 0..360) {
+                val degree = (i * 1) % 360F
                 val remoteViews = RemoteViews(context.packageName, R.layout.remote_widget_desk_layout).apply {
                     val intent = Intent().apply {
                         action = REMOTE_CLICK_ACTION
@@ -76,8 +92,9 @@ class RemoteAppWidgetProvider : AppWidgetProvider() {
                 }
                 val componentName = ComponentName(context, RemoteAppWidgetProvider::class.java)
                 appWidgetManager.updateAppWidget(componentName, remoteViews)
-                delay(30)
+                delay(10)
             }
+            isAnimationFinished.set(true)
         }
     }
 
