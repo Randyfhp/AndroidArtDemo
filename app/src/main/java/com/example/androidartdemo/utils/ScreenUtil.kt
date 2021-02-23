@@ -25,4 +25,16 @@ object ScreenUtil {
         }
         return result
     }
+
+    fun statusBarHeight(context: Context?) : Int {
+        var height = -1;
+        context?.apply {
+            val statusBarId = resources.getIdentifier("status_bar_height", "dimen", "android")
+            if (statusBarId > 0) {
+                height = resources.getDimensionPixelSize(statusBarId)
+            }
+        }
+        return height
+    }
+
 }

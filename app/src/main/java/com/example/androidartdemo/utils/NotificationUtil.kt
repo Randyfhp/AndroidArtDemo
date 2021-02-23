@@ -72,9 +72,12 @@ object NotificationUtil {
      **/
 
 
-    inline fun getManager(context: Context): NotificationManager {
+    fun getManager(context: Context): NotificationManager {
         synchronized(this) {
-            return context.getSystemService(NotificationManager::class.java);
+            if (notificationManager == null) {
+                notificationManager = context.getSystemService(NotificationManager::class.java)
+            }
+            return notificationManager!!
         }
     }
 

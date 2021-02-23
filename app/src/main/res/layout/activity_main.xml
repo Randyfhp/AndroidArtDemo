@@ -64,6 +64,13 @@
             android:layout_height="wrap_content"
             android:text="remoteView"
             />
+
+        <Button
+            android:id="@+id/jumpWindowManager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="window"
+            />
     </LinearLayout>
 
 

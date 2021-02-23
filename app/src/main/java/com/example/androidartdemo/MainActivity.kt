@@ -9,6 +9,7 @@ import com.example.androidartdemo.activity.TextMessengerActivity
 import com.example.androidartdemo.activity.ViewMainActivity
 import com.example.androidartdemo.databinding.ActivityMainBinding
 import com.example.androidartdemo.remote.RemoteViewMainActivity
+import com.example.androidartdemo.window.activity.WindowManagerActivity
 import kotlinx.coroutines.*
 
 
@@ -45,6 +46,9 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         }
         mRootViewBinding.jumpRemoteView.setOnClickListener {
             goto(RemoteViewMainActivity::class.java)
+        }
+        mRootViewBinding.jumpWindowManager.setOnClickListener {
+            goto(WindowManagerActivity::class.java)
         }
     }
 
