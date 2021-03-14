@@ -8,8 +8,10 @@ import com.example.androidartdemo.activity.BookProviderActivity
 import com.example.androidartdemo.activity.TextMessengerActivity
 import com.example.androidartdemo.activity.ViewMainActivity
 import com.example.androidartdemo.databinding.ActivityMainBinding
+import com.example.androidartdemo.handle.HandleMainActivity
 import com.example.androidartdemo.remote.RemoteViewMainActivity
 import com.example.androidartdemo.window.activity.WindowManagerActivity
+import com.example.module_ndk.NdkMainActivity
 import kotlinx.coroutines.*
 
 
@@ -49,6 +51,12 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         }
         mRootViewBinding.jumpWindowManager.setOnClickListener {
             goto(WindowManagerActivity::class.java)
+        }
+        mRootViewBinding.jumpHandleTest.setOnClickListener {
+            goto(HandleMainActivity::class.java)
+        }
+        mRootViewBinding.jumpNDKTest.setOnClickListener {
+            goto(NdkMainActivity::class.java)
         }
     }
 

@@ -1,2 +1,4 @@
+include ':module_ndk'
+include ':module_base'
 include ':app'
 rootProject.name = "AndroidArtDemo"

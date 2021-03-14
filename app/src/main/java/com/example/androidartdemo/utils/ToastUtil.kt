@@ -6,10 +6,11 @@ import androidx.annotation.StringRes
 
 class ToastUtil constructor(context: Context) {
 
-    private val mToast: Toast = Toast.makeText(context, "", Toast.LENGTH_SHORT);
+    private val mToast: Toast = Toast(context)
 
     fun s(s: CharSequence?): Toast {
         return mToast.apply {
+            cancel()
             setText(s)
             duration = Toast.LENGTH_SHORT
         }
@@ -17,6 +18,7 @@ class ToastUtil constructor(context: Context) {
 
     fun s(@StringRes id:  Int): Toast {
         return mToast.apply {
+            cancel()
             setText(id)
             duration = Toast.LENGTH_SHORT
         }
@@ -24,6 +26,7 @@ class ToastUtil constructor(context: Context) {
 
     fun l(s: CharSequence?): Toast {
         return mToast.apply {
+            cancel()
             setText(s)
             duration = Toast.LENGTH_LONG
         }
@@ -31,6 +34,7 @@ class ToastUtil constructor(context: Context) {
 
     fun l(@StringRes id:  Int): Toast {
         return mToast.apply {
+            cancel()
             setText(id)
             duration = Toast.LENGTH_LONG
         }
