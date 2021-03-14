@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">module_base</string>
+    <string name="block_canary_display_activity_label">BlocksCanary</string>
+</resources>
