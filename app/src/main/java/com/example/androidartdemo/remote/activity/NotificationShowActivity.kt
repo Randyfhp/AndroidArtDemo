@@ -1,10 +1,10 @@
 package com.example.androidartdemo.remote.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.androidartdemo.databinding.ActivityNotificationShowBinding
+import com.example.module_base.base.activity.BaseActivity
 
-class NotificationShowActivity : AppCompatActivity() {
+class NotificationShowActivity : BaseActivity() {
 
     private lateinit var mViewRootBinding: ActivityNotificationShowBinding
 

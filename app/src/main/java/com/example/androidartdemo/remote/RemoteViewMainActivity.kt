@@ -1,12 +1,12 @@
 package com.example.androidartdemo.remote
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.androidartdemo.databinding.ActivityRemoteViewMainBinding
 import com.example.androidartdemo.remote.activity.RemoteNotificationActivity
+import com.example.module_base.base.activity.BaseActivity
 
-class RemoteViewMainActivity : AppCompatActivity() {
+class RemoteViewMainActivity : BaseActivity() {
 
     private lateinit var mViewRootBinding: ActivityRemoteViewMainBinding
 

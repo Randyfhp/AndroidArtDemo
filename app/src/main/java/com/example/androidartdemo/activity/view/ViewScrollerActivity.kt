@@ -1,15 +1,15 @@
 package com.example.androidartdemo.activity.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.androidartdemo.databinding.ActivityViewScrollerBinding
-import com.example.androidartdemo.utils.ScreenUtil
+import com.example.module_base.utils.ScreenUtil
+import com.example.module_base.base.activity.BaseActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ViewScrollerActivity : AppCompatActivity(), CoroutineScope by MainScope() {
+class ViewScrollerActivity : BaseActivity(), CoroutineScope by MainScope() {
 
     private lateinit var mRootViewBinding: ActivityViewScrollerBinding
 

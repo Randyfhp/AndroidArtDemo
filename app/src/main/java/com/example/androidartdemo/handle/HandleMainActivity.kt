@@ -6,10 +6,10 @@ import android.util.Log
 import com.example.androidartdemo.databinding.ActivityHandleMainBinding
 import com.example.androidartdemo.handle.handlerAdapter.Handler1
 import com.example.androidartdemo.utils.HandlerUtil
-import com.example.module_base.ModuleBaseMainActivity
+import com.example.module_base.base.activity.BaseActivity
 import kotlinx.coroutines.*
 
-class HandleMainActivity : ModuleBaseMainActivity(), CoroutineScope by MainScope() {
+class HandleMainActivity : BaseActivity(), CoroutineScope by MainScope() {
 
     private lateinit var mViewBindingRoot: ActivityHandleMainBinding
 

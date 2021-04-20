@@ -1,11 +1,11 @@
 package com.example.androidartdemo.activity
 
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.androidartdemo.databinding.ActivityBookProviderBinding
+import com.example.module_base.base.activity.BaseActivity
 
-class BookProviderActivity : AppCompatActivity() {
+class BookProviderActivity : BaseActivity() {
 
     private lateinit var mRootViewBinding: ActivityBookProviderBinding
 

@@ -1,4 +1,4 @@
-package com.example.module_base.base.performance
+package com.example.module_base.base.app.performance
 
 import com.github.moduth.blockcanary.BlockCanaryContext
 

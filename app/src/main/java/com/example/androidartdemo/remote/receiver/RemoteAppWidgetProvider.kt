@@ -14,7 +14,7 @@ import android.os.Build
 import android.util.Log
 import android.widget.RemoteViews
 import com.example.androidartdemo.R
-import com.example.androidartdemo.utils.ToastUtil
+import com.example.module_base.utils.ToastUtil
 import kotlinx.coroutines.*
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -70,7 +70,7 @@ class RemoteAppWidgetProvider : AppWidgetProvider() {
 
     private fun doOnRemoteClick(context: Context?) {
         if (context == null) { return }
-        ToastUtil(context).s("clicked it").show()
+        ToastUtil(context).show("clicked it")
         if (!isAnimationFinished.get()) { return }
         isAnimationFinished.set(false)
         GlobalScope.launch(Dispatchers.Default) {

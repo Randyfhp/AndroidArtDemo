@@ -3,20 +3,19 @@ package com.example.androidartdemo.window.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.PixelFormat
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.*
 import android.widget.Button
 import com.example.androidartdemo.databinding.ActivityWindowManagerBinding
-import com.example.androidartdemo.utils.ToastUtil
+import com.example.module_base.utils.ToastUtil
 import com.example.androidartdemo.window.view.WindowDraftView
+import com.example.module_base.base.activity.BaseActivity
 
-class WindowManagerActivity : AppCompatActivity() {
+class WindowManagerActivity : BaseActivity() {
 
     private lateinit var mViewRootBinding: ActivityWindowManagerBinding
 
@@ -32,10 +31,10 @@ class WindowManagerActivity : AppCompatActivity() {
     private fun initView() {
         mViewRootBinding.apply {
             button1.setOnClickListener {
-                ToastUtil(this@WindowManagerActivity).s("button1按下").show()
+                ToastUtil(this@WindowManagerActivity).show("button1按下")
             }
             button2.setOnClickListener {
-                ToastUtil(this@WindowManagerActivity).s("button2按下").show()
+                ToastUtil(this@WindowManagerActivity).show("button2按下")
             }
         }
 
@@ -74,7 +73,7 @@ class WindowManagerActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (requestCode == 0) {
                 if (!Settings.canDrawOverlays(this)) {
-                    ToastUtil(this).s("没获得权限")
+                    ToastUtil(this).show("没获得权限")
                 } else {
                     addWindow(Button(this).apply { text = "加在window上" })
                 }

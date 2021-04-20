@@ -1,12 +1,12 @@
 package com.example.androidartdemo.activity.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.androidartdemo.activity.view.scrollconflict.DifferentDirectConflictActivity
 import com.example.androidartdemo.databinding.ActivityScrollConflictBinding
+import com.example.module_base.base.activity.BaseActivity
 
-class ScrollConflictActivity : AppCompatActivity() {
+class ScrollConflictActivity : BaseActivity() {
 
     private lateinit var mRootViewBinding: ActivityScrollConflictBinding
 

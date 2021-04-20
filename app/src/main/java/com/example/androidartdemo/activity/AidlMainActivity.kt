@@ -1,17 +1,17 @@
 package com.example.androidartdemo.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.androidartdemo.aidl.Book
 import com.example.androidartdemo.client.BookManagerClient
 import com.example.androidartdemo.databinding.ActivityAidlMainBinding
+import com.example.module_base.base.activity.BaseActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class AidlMainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
+class AidlMainActivity : BaseActivity(), CoroutineScope by MainScope() {
 
     private lateinit var mRootViewBinding: ActivityAidlMainBinding
     private lateinit var manager: BookManagerClient

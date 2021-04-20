@@ -91,6 +91,13 @@
                 android:layout_height="wrap_content"
                 android:text="ndk"
                 />
+
+            <Button
+                android:id="@+id/jumpNetworkTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="network"
+                />
         </LinearLayout>
 
 

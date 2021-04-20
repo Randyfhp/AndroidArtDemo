@@ -1,4 +1,4 @@
-package com.example.androidartdemo.utils
+package com.example.module_base.utils
 
 import android.content.Context
 import android.graphics.Rect

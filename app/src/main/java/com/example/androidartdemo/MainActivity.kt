@@ -2,20 +2,21 @@ package com.example.androidartdemo
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.androidartdemo.activity.AidlMainActivity
 import com.example.androidartdemo.activity.BookProviderActivity
 import com.example.androidartdemo.activity.TextMessengerActivity
 import com.example.androidartdemo.activity.ViewMainActivity
 import com.example.androidartdemo.databinding.ActivityMainBinding
 import com.example.androidartdemo.handle.HandleMainActivity
+import com.example.androidartdemo.network.NetworkMainActivity
 import com.example.androidartdemo.remote.RemoteViewMainActivity
 import com.example.androidartdemo.window.activity.WindowManagerActivity
+import com.example.module_base.base.activity.BaseActivity
 import com.example.module_ndk.NdkMainActivity
 import kotlinx.coroutines.*
 
 
-class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
+class MainActivity : BaseActivity(), CoroutineScope by MainScope() {
 
     private lateinit var mRootViewBinding: ActivityMainBinding
 
@@ -58,6 +59,10 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         mRootViewBinding.jumpNDKTest.setOnClickListener {
             goto(NdkMainActivity::class.java)
         }
+        mRootViewBinding.jumpNetworkTest.setOnClickListener {
+            goto(NetworkMainActivity::class.java)
+        }
+
     }
 
     override fun onDestroy() {

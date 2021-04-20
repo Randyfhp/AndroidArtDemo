@@ -1,6 +1,6 @@
-package com.example.module_base.base
+package com.example.module_base.base.app
 
-import android.content.Context
+import android.app.Application
 
 class BaseApplication : PerformanceMonitorApplication() {
 
@@ -8,7 +8,7 @@ class BaseApplication : PerformanceMonitorApplication() {
 
         lateinit var mContext: BaseApplication
 
-        inline fun getContext() : Context {
+        inline fun getContext() : Application {
             return mContext
         }
     }

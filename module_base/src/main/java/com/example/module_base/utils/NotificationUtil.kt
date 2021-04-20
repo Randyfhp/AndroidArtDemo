@@ -1,4 +1,4 @@
-package com.example.androidartdemo.utils
+package com.example.module_base.utils
 
 import android.annotation.TargetApi
 import android.app.Notification
@@ -86,7 +86,8 @@ object NotificationUtil {
                    importance: Int = NotificationManager.IMPORTANCE_DEFAULT): String {
         if (context == null) { return channelId}
         getManager(context).createNotificationChannel(
-            newNotificationChannel(channelId, channelName, importance))
+            newNotificationChannel(channelId, channelName, importance)
+        )
         return channelId
     }
 

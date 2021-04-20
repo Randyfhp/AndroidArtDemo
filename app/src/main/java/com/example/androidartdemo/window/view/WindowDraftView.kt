@@ -9,7 +9,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.widget.AppCompatButton
-import com.example.androidartdemo.utils.ScreenUtil
+import com.example.module_base.utils.ScreenUtil
 
 class WindowDraftView @JvmOverloads constructor(context: Context,
                                                 attr: AttributeSet? = null,

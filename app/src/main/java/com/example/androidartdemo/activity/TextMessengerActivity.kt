@@ -1,17 +1,17 @@
 package com.example.androidartdemo.activity
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.androidartdemo.MainActivity
 import com.example.androidartdemo.client.MessengerClient
 import com.example.androidartdemo.databinding.ActivityTextMessengerBinding
+import com.example.module_base.base.activity.BaseActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-class TextMessengerActivity : AppCompatActivity(), CoroutineScope by MainScope() {
+class TextMessengerActivity : BaseActivity(), CoroutineScope by MainScope() {
 
     private lateinit var mRootViewBinding: ActivityTextMessengerBinding
     private lateinit var msgManager: MessengerClient

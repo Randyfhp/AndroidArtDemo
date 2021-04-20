@@ -1,13 +1,13 @@
 package com.example.androidartdemo.activity.view.scrollconflict
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.androidartdemo.R
 import com.example.androidartdemo.databinding.ActivityDifferentDirectConflictBinding
+import com.example.module_base.base.activity.BaseActivity
 
-class DifferentDirectConflictActivity : AppCompatActivity() {
+class DifferentDirectConflictActivity : BaseActivity() {
 
     private lateinit var mRootViewBinding: ActivityDifferentDirectConflictBinding
 

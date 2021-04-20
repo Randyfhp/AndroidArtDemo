@@ -4,14 +4,14 @@ import android.app.Notification
 import android.app.PendingIntent
 import android.content.Intent
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.NotificationCompat
 import com.example.androidartdemo.R
 import com.example.androidartdemo.databinding.ActivityRemoteNotificationBinding
-import com.example.androidartdemo.utils.NotificationUtil
+import com.example.module_base.utils.NotificationUtil
+import com.example.module_base.base.activity.BaseActivity
 
-class RemoteNotificationActivity : AppCompatActivity() {
+class RemoteNotificationActivity : BaseActivity() {
 
     private lateinit var mViewRootBinding: ActivityRemoteNotificationBinding
 

@@ -14,10 +14,11 @@ message("multi Threads " ${Threads_FOUND})
 endif(${Threads_FOUND})
 
 # 搜索log库
-find_library(log-lib log)
+find_library(LOG log)
+
 
 # 添加头文件依赖
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_LIST_DIR})
+include_directories(${CMAKE_CURRENT_LIST_DIR})
 include_directories(${Threads_INCLUDE})
 
 # 搜索源文件
@@ -27,4 +28,4 @@ aux_source_directory(${CMAKE_CURRENT_LIST_DIR} DIR_SRC)
 add_library(${LIB_NAME} SHARED ${DIR_SRC})
 
 # 连接生成库
-target_link_libraries(${LIB_NAME} ${Threads_LIBRARY} ${log-lib})
+target_link_libraries(${LIB_NAME} ${Threads_LIBRARY} ${LOG})

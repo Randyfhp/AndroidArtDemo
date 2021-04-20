@@ -1,11 +1,11 @@
 package com.example.module_ndk
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.module_base.base.activity.BaseActivity
 import com.example.module_ndk.databinding.ActivityNdkMainBinding
 import com.example.module_ndk.file.NativeFileOperation
 
-class NdkMainActivity : AppCompatActivity() {
+class NdkMainActivity : BaseActivity() {
 
     private lateinit var mViewBinding: ActivityNdkMainBinding
     private lateinit var mFileOp: NativeFileOperation
